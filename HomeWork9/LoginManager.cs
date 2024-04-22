@@ -9,28 +9,33 @@ namespace HomeWork9
 
         public static bool ConfirmerLogin(string login, string password, string confirmPassword)
         {
+            bool result = true;
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
+                result = false;
                 throw new ArgumentException();
             }
 
             if (!(LoginManager.IsCorrectLine(login)))
             {
+                result = false;
                 throw new WrongLoginException("WrongLoginException");
             }
 
             if (!(LoginManager.IsCorrectLine(password)) || !(LoginManager.IsContainsDigit(password)))
             {
+                result = false;
                 throw new WrongPasswordException("The password is not equal to confirmPassword");
             }
 
             if (password != confirmPassword)
             {
+                result = false;
                 throw new WrongPasswordException("The password is not equal to confirmPassword");
             }
 
-            return true;
+            return result;
         }
 
         private static bool IsCorrectLine(string str)
