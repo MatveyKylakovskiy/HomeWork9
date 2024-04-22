@@ -17,7 +17,7 @@ namespace HomeWork9
 
             if (!(LoginManager.IsCorrectLine(login)))
             {
-                throw new WrongLoginException("ghiuih");
+                throw new WrongLoginException("WrongLoginException");
             }
 
             if (!(LoginManager.IsCorrectLine(password)) || !(LoginManager.IsContainsDigit(password)))
@@ -35,16 +35,7 @@ namespace HomeWork9
 
         private static bool IsCorrectLine(string str)
         {
-
-
-            if ((str.Length < _lineLength && str.IndexOf(" ") == -1))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ((str.Length < _lineLength && str.IndexOf(" ") == -1));
         }
 
         private static bool IsContainsDigit(string str)
