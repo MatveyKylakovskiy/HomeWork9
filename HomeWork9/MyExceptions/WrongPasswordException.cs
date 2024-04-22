@@ -3,10 +3,20 @@ namespace HomeWork9.MyExceptions
 {
     public class WrongPasswordException: Exception
     {
-        public readonly string Message;
-        public WrongPasswordException(string message)
+        public WrongPasswordException()
         {
-            Message = string.Format("WrongPasswordException. {0}", message);
+
+        }
+
+        public WrongPasswordException(string message)
+            : base(message)
+        {
+
+        }
+
+        public WrongPasswordException(string message, Exception inner)
+            : base(message, inner)
+        {
         }
     }
 }

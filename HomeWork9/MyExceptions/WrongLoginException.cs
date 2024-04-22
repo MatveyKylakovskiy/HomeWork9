@@ -3,11 +3,20 @@ namespace HomeWork9.MyExceptions
 {
     public class WrongLoginException: Exception
     {   
-      public readonly string Message;
-      public WrongLoginException()
+        public WrongLoginException()
         {
-            Message = "WrongLoginException";
+
         }
 
+        public WrongLoginException(string message)
+            : base(message)
+        {
+
+        }
+
+        public WrongLoginException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
     }
 }
